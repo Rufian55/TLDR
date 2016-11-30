@@ -1,0 +1,47 @@
+# Use PHP5.6 as default
+AddHandler application/x-httpd-php56 .php
+addtype text/html py
+addhandler cgi-script .py
+#File Protection
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+<Files php.ini>
+Order allow,deny
+Deny from all
+</Files>
+<Files 400.shtml>
+order allow,deny
+allow from all
+</Files>
+<Files 401.shtml>
+order allow,deny
+allow from all
+</Files>
+<Files 402.shtml>
+order allow,deny
+allow from all
+</Files>
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+<Files 404.shtml>
+order allow,deny
+allow from all
+</Files>
+<Files 500.php>
+order allow,deny
+allow from all
+</Files>
+<Files 500.shtml>
+order allow,deny
+allow from all
+</Files>
+RewriteEngine on
+RewriteCond %{HTTP_REFERER} !^http://blitspost.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://blitspost.com$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.blitspost.com/.*$      [NC]
+RewriteCond %{HTTP_REFERER} !^http://www.blitspost.com$      [NC]
+RewriteRule .*\.(jpg|jpeg|gif|png|bmp|class)$ http://www.blitspost.com/500.shtml [R,NC]

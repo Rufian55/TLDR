@@ -105,7 +105,7 @@ $str = implode($array);
 echo $str;
 
 // Debugg Array.
-//print_r($array);
+print_r($array);
 ?>
 
 </body>
